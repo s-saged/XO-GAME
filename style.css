@@ -1,88 +1,90 @@
-/* تصفير الهوامش وتظبيط الخطوط */
+/* إعدادات عامة لتصفير المسافات وخلفية سينمائية */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
-/* خلفية الصفحة كاملة */
 body {
-    background: radial-gradient(circle, #1a1a2e 0%, #0f0f1b 100%);
+    background: linear-gradient(135deg, #141e30, #243b55);
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     overflow: hidden;
-    padding: 20px; /* عشان ما يلزقش في حواف الموبايل */
 }
 
-/* الحاوية الرئيسية للعبة */
+/* الحاوية الرئيسية للعبة بتأثير زجاجي */
 .game {
-    display: grid;
-    /* هنا السحر: المربعات هتكبر وتصغر تلقائي حسب الشاشة وأقصى حجم ليها 100 بكسل */
-    grid-template-columns: repeat(3, minmax(70px, 100px));
-    grid-template-rows: auto repeat(3, minmax(70px, 100px));
-    gap: 15px;
-    padding: 25px;
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 20px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    width: 100%;
-    max-width: 380px; /* أقصى عرض للعبة عشان شكلها ما يبوظش على الشاشات الكبيرة */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 15px;
+    text-align: center;
+    position: relative;
 }
 
-/* عنوان اللعبة */
+/* عنوان اللعبة بشكل مبهر */
 .title {
     grid-column: span 3;
-    text-align: center;
-    font-size: calc(1.5rem + 1vw); /* حجم الخط بيتغير حسب حجم الشاشة */
-    font-weight: 800;
     color: #fff;
-    margin-bottom: 20px;
+    font-size: 2rem;
+    font-weight: bold;
     letter-spacing: 2px;
-    text-transform: uppercase;
+    margin-bottom: 20px;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 .title span {
     color: #00f2fe;
-    text-shadow: 0 0 20px #00f2fe, 0 0 40px #00f2fe;
+    text-shadow: 0 0 20px rgba(0, 242, 254, 0.6);
 }
 
-/* المربعات */
+/* ستايل المربعات (الخلايا) */
 .square {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: calc(2rem + 1vw); /* حجم الـ X والـ O بيكبر ويصغر مع الشاشة */
-    font-weight: bold;
+    font-size: 2.5rem;
+    font-weight: 800;
     color: #fff;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.02);
-    /* عشان المربع يفضل مربع متساوي الأضلاع دائماً */
-    aspect-ratio: 1 / 1; 
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    user-select: none;
 }
 
-/* تأثير عند تمرير الماوس فوق المربع (للكمبيوتر) */
-@media (hover: hover) {
-    .square:hover {
-        background: rgba(255, 255, 255, 0.1);
-        transform: translateY(-5px) scale(1.03);
-        border-color: #00f2fe;
-        box-shadow: 0 10px 20px rgba(0, 242, 254, 0.2),
-                    inset 0 0 15px rgba(0, 242, 254, 0.1);
-    }
+/* تأثير عند تمرير الماوس فوق المربع */
+.square:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #00f2fe;
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
+    transform: scale(1.05);
 }
 
-/* تأثير الضغط على المربع (للموبايل والكمبيوتر) */
+/* تأثير عند الضغط على المربع */
 .square:active {
-    transform: translateY(0) scale(0.95);
+    transform: scale(0.95);
+}
+
+/* قسم الإعلانات أسفل اللعبة */
+.ad {
+    margin-top: 25px;
+    width: 100%;
+    max-width: 330px;
+    text-align: center;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
