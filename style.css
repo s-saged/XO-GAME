@@ -8,12 +8,13 @@
 
 body {
     background: linear-gradient(135deg, #141e30, #243b55);
-    height: 100vh;
+    min-height: 100vh; /* تغيرت من height لـ min-height */
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    overflow: hidden;
+    padding: 20px; /* لضمان وجود مساحة مريحة على الشاشات الصغيرة */
+    /* تم حذف overflow: hidden */
 }
 
 /* الحاوية الرئيسية للعبة بتأثير زجاجي */
@@ -80,11 +81,13 @@ body {
 
 /* قسم الإعلانات أسفل اللعبة */
 .ad {
-    margin-top: 25px;
-    width: 100%;
-    max-width: 330px;
+    margin-top: 30px;
+    width: auto; 
+    min-width: 300px; /* الحجم القياسي لأغلب إعلانات البانر */
+    min-height: 50px;
     text-align: center;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999; /* لضمان ظهوره فوق الخلفية دائماً */
 }
