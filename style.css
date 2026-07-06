@@ -80,14 +80,23 @@ body {
 }
 
 /* قسم الإعلانات أسفل اللعبة */
+/* تنسيق مطور لقسم الإعلانات لضمان ظهوره */
 .ad {
-    margin-top: 30px;
-    width: auto; 
-    min-width: 300px; /* الحجم القياسي لأغلب إعلانات البانر */
-    min-height: 50px;
-    text-align: center;
+    margin-top: 25px;
+    width: 330px; /* تحديد عرض ثابت يناسب الإعلانات */
+    min-height: 50px; /* إعطاء مساحة طولية دنيا للإعلان ليتمكن من التحميل */
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 999; /* لضمان ظهوره فوق الخلفية دائماً */
+    background: rgba(255, 255, 255, 0.03); /* خلفية خفيفة عشان لو الإعلان شفاف يبان */
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* للتأكد من أن الأكواد البرمجية داخل الإعلان تملأ المساحة */
+.ad ins, .ad iframe, .ad script {
+    max-width: 100% !important;
+    display: block !important;
 }
