@@ -81,22 +81,35 @@ body {
 
 /* قسم الإعلانات أسفل اللعبة */
 /* تنسيق مطور لقسم الإعلانات لضمان ظهوره */
+/* تنسيق معدل يخفي النصوص البرمجية الزائدة ويظهر الإعلان فقط */
 .ad {
     margin-top: 25px;
-    width: 330px; /* تحديد عرض ثابت يناسب الإعلانات */
-    min-height: 50px; /* إعطاء مساحة طولية دنيا للإعلان ليتمكن من التحميل */
+    width: 320px; /* العرض المناسب تماماً لمقاس البنر */
+    height: 50px; /* تحديد الارتفاع بدقة لمنع تسرب أي نصوص زائدة */
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    
+    /* السحر هنا: أي نص يخرج عن حدود الـ 50px سيتم إخفاؤه تماماً */
+    overflow: hidden; 
+    
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(255, 255, 255, 0.03); /* خلفية خفيفة عشان لو الإعلان شفاف يبان */
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    
+    /* تجنب ظهور أي نصوص عشوائية تابعة للكود */
+    color: transparent; 
+    font-size: 0;
 }
 
-/* للتأكد من أن الأكواد البرمجية داخل الإعلان تملأ المساحة */
-.ad ins, .ad iframe, .ad script {
-    max-width: 100% !important;
+/* التأكيد على أن محتوى الإعلان (البنر الحقيقي) يظهر في المنتصف بدون تأثر */
+.ad iframe, .ad ins, .ad a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
     display: block !important;
 }
