@@ -52,3 +52,24 @@ function winner() {
         end(3, 6, 9);
     }
 }
+if(squares[1] != '' &&squares[2] != '' &&squares[3] != '' &&squares[4] != '' &&squares[5] != '' &&squares[6] != '' &&squares[7] != '' &&squares[8] != '' &&squares[9] != '' ){
+    title.innerHTML = `🛑 There is no winner. 🛑`
+
+     document.getElementById('s1').style.backgroundColor = '#ff0000'
+    document.getElementById('s2').style.backgroundColor = '#ff0000'
+    document.getElementById('s3').style.backgroundColor = '#ff0000'
+
+     document.getElementById('s4').style.backgroundColor = '#ff0000'
+    document.getElementById('s5').style.backgroundColor = '#ff0000'
+    document.getElementById('s6').style.backgroundColor = '#ff0000'
+
+     document.getElementById('s7').style.backgroundColor = '#ff0000'
+    document.getElementById('s8').style.backgroundColor = '#ff0000'
+    document.getElementById('s9').style.backgroundColor = '#ff0000'
+        setInterval(() => {
+        title.innerHTML += '.'
+    }, 1000);
+    setTimeout(()=>{
+        location.reload()
+    } , 4000)
+}
