@@ -52,7 +52,7 @@ function winner() {
         end(3, 6, 9);
     }
 }
-if(squares[1] != '' &&squares[2] != '' &&squares[3] != '' &&squares[4] != '' &&squares[5] != '' &&squares[6] != '' &&squares[7] != '' &&squares[8] != '' &&squares[9] != '' ){
+if(squares[1] == '' &&squares[2] == '' &&squares[3] == '' &&squares[4] == '' &&squares[5] == '' &&squares[6] == '' &&squares[7] == '' &&squares[8] == '' &&squares[9] == '' ){
     title.innerHTML = `🛑 There is no winner. 🛑`
 
      document.getElementById('s1').style.backgroundColor = '#ff0000'
